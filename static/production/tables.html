@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>视频演示</title>
+    <link href="./images/favicon.png" rel="icon">
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/index" class="site_title"><i class="fa fa-paw"></i> <span>返回首页</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <!--
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            -->
+            <!-- /menu profile quick info -->
+
+            <br />
+
+           <!-- sidebar menu -->
+           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+             <div class="menu_section">
+               <h3>Adversarial Attack Show</h3>
+               <ul class="nav side-menu">
+                 <li><a href="attack_form.html"><i class="fa fa-edit"></i> 攻击参数设置</a></li>
+           
+              <li><a><i class="fa fa-image"></i> 对抗样本 <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li><a href="tables.html">视频演示</a></li>
+                  <li><a href="tables_dynamic.html">样本对比</a></li>
+                </ul>
+              </li>
+           
+                 <li><a><i class="fa fa-bar-chart-o"></i> 指标可视化 <span class="fa fa-chevron-down"></span></a>
+                   <ul class="nav child_menu">
+                     <li><a href="chartjs.html">对抗样本评估</a></li>
+<!--                     <li><a href="chartjs2.html">被攻击模型评估</a></li>-->
+                   </ul>
+                 </li>
+           
+                 <li><a href="physic_attack.html"><i class="fa fa-video-camera"></i> 物理世界攻击 </a>
+                  </li>
+
+                 <li><a href="poison_attack.html"><i class="fa fa-deaf"></i> 投毒攻击 </a>
+                  </li>
+               </ul>
+             </div>
+           
+           
+           </div>
+           <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <!--
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            -->
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <!--
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              -->
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                 <h3 style="text-align: center;">对抗样本攻击视频演示 </h3>
+                
+                </div>
+              </div>
+            </div>
+
+
+              <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                <div class="x_panel">
+                  <div class="x_title">
+                   <h4 style="color: #99CC66;font-size:30px;font-family: '黑体';font-weight: bold; text-align: center;">正常样本识别结果:</h4>
+                 
+                    <div class="clearfix"></div>
+                  </div>
+				  
+				  <video class="normal" width="100%"  style="text-align: center" controls  muted="muted">
+                      <source id="normal" class="normal" src="" type="video/mp4" >
+                    <!--
+                      <source src="movie.ogg" type="video/ogg">
+                      <source src="movie.webm" type="video/webm">
+                      <object data="movie.mp4" width="320" height="240">
+                         <embed src="movie.swf" width="320" height="240">
+                      </object>
+                     -->
+				  </video> 
+				 
+                </div>
+              </div>
+			  
+
+			  <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+			    <div class="x_panel">
+			      <div class="x_title">
+			       <h4 style="color: red;font-size:30px;font-family: '黑体';font-weight: bold; text-align: center;">对抗样本识别结果:</h4>
+			     
+			        <div class="clearfix"></div>
+			      </div>
+			  				  
+                  <video class="adversarial" width="100%" style="text-align: center" controls >
+                    <source class="adversarial" id="adversarial" src="" type="video/mp4">
+                    <!--
+                    <source src="movie.ogg" type="video/ogg">
+                    <source src="movie.webm" type="video/webm">
+                    <object data="movie.mp4" width="320" height="240">
+                      <embed src="movie.swf" width="320" height="240">
+                    </object>
+                    -->
+                  </video>
+
+			    </div>
+			  </div>
+
+            <div class="col-md-12 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+			    <div class="x_panel">
+                  <button id="getNormal"  class="btn btn-default btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                    生成结果
+                  </button>
+			    </div>
+			  </div>
+
+			  <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+			    <div class="x_panel">
+			  		<button id="getAdversarial" class="btn btn-default btn-danger" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+			  		  生成结果
+			  		</button>
+			    </div>
+			  </div>
+            </div>
+
+	
+	    </div>
+	</div>
+
+
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            adversarial attack show by <a href="https://jsjxy.xust.edu.cn/"> college of computer science & technology, XUST</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+    <script>
+      $("#getNormal").click(function () {
+        $.ajax({
+          url: '/result/',
+          type: 'post',
+          data: {
+            'isNormal': true
+          },
+          dataType: 'json',
+          success: function (res) {
+            //解析返回结果并设置正常样本的路径
+            //alert(res.norPath);
+            $(".normal").attr('src','../deal/normal/' + res.norPath + 'result.mp4');
+          }
+        });
+      });
+      $("#getAdversarial").click(function () {
+        $.ajax({
+          url: '/result/',
+          type: 'post',
+          data: {
+            'isNormal': false
+          },
+          dataType: 'json',
+          success: function (res) {
+            //解析返回结果并设置对抗样本的路径
+            $(".adversarial").attr('src','../deal/adversarial/' + res.advPath + 'result.mp4');
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

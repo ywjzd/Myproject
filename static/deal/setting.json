@@ -1,0 +1,1 @@
+{"originalExample": "scene2", "attackMethod": "AdvPatch", "targetModel": "YOLOv2", "queryCount": "2000", "attackPattern": "unTargeted"}

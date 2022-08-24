@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>投毒攻击</title>
+
+    <link href="./images/favicon.png" rel="icon">
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="../vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+    <!--layui-->
+    <link rel="stylesheet" href="../vendors/layui/css/layui.css">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/index" class="site_title"><i class="fa fa-paw"></i> <span>返回首页</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <!--
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="./images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            -->
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Adversarial Attack Show</h3>
+                <ul class="nav side-menu">
+
+                  <li><a href="attack_form.html"><i class="fa fa-edit"></i> 攻击参数设置 </a>
+                  </li>
+
+                  <li><a><i class="fa fa-image"></i> 对抗样本 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="tables.html">视频演示</a></li>
+                      <li><a href="tables_dynamic.html">样本对比</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-bar-chart-o"></i> 指标可视化 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="chartjs.html">对抗样本评估</a></li>
+<!--                      <li><a href="chartjs2.html">被攻击模型评估</a></li>-->
+                    </ul>
+                  </li>
+
+                  <li><a href="physic_attack.html"><i class="fa fa-video-camera"></i> 物理世界攻击 </a>
+                  </li>
+
+                  <li><a href="poison_attack.html"><i class="fa fa-deaf"></i> 投毒攻击 </a>
+                  </li>
+                </ul>
+              </div>
+
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <!--
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            -->
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <!--
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              -->
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>投毒攻击 </h3>
+              </div>
+                <!--
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              -->
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>攻击效果</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                        <!--
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                      -->
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="layui-container">
+                      <div class="layui-btn-container">
+                        <button class="layui-btn" test-active="test-form">选择</button>
+                      </div>
+                    </div>
+                    <!--
+                    <p>点击下方按钮上传原始样本</p>
+
+                        <input id="file" type="file" style="display: inline-block"/>
+                      -->
+                      <!--
+                      <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                        <img src="../deal/poison/scene1/image.jpg" width="100%" height="300">
+                        <label>
+                          <input type="radio" class="flat" checked name="poison" value="scene1">scene1
+                        </label>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                        <img src="../deal/poison/scene2/image.jpg" width="100%" height="300">
+                        <label>
+                          <input type="radio" class="flat" name="poison" value="scene2">scene2
+                        </label>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                        <img src="../deal/poison/scene3/image.jpg" width="100%" height="300">
+                        <label>
+                          <input type="radio" class="flat" name="poison" value="scene3">scene3
+                        </label>
+                      </div>
+                      <p>&nbsp;</p>
+
+                      <div style="text-align: center">
+                          <input id="visit" type="button" class="btn btn-primary" value="攻击结果展示"/>
+                      </div>
+                      -->
+
+                    <br/>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                        <div class="x_title">
+                         <h6 style="color: #99CC66;font-size:30px;font-family: '黑体';font-weight: bold; text-align: center;">正常模型识别结果:</h6>
+
+                          <div class="clearfix"></div>
+                        </div>
+
+                        <video class="normal" width="100%"  style="text-align: center" controls  muted="muted" autoplay="autoplay">
+                            <source id="normal" class="normal" src="" type="video/mp4" >
+                          <!--
+                            <source src="movie.ogg" type="video/ogg">
+                            <source src="movie.webm" type="video/webm">
+                            <object data="movie.mp4" width="320" height="240">
+                               <embed src="movie.swf" width="320" height="240">
+                            </object>
+                           -->
+                        </video>
+                    </div>
+
+			        <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                        <div class="x_title">
+                         <h6 style="color: red;font-size:30px;font-family: '黑体';font-weight: bold; text-align: center;">中毒模型识别结果:</h6>
+
+                          <div class="clearfix"></div>
+                        </div>
+
+                        <video class="poison" width="100%" style="text-align: center" controls muted="muted" autoplay="autoplay">
+                          <source class="poison" id="poison" src="" type="video/mp4">
+                          <!--
+                          <source src="movie.ogg" type="video/ogg">
+                          <source src="movie.webm" type="video/webm">
+                          <object data="movie.mp4" width="320" height="240">
+                            <embed src="movie.swf" width="320" height="240">
+                          </object>
+                          -->
+                        </video>
+			        </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist" style="text-align: center;">
+                           <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">第一组</a>
+                           </li>
+                           <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">第二组</a>
+                           </li>
+                           <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">第三组</a>
+                           </li>
+                           <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">第四组</a>
+                           </li>
+                           <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">第五组</a>
+                           </li>
+                         </ul>
+
+                         <div id="myTabContent" class="tab-content">
+                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="normalResult" src="" width="100%">
+                                 </div>
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="poisonResult" src="" width="100%">
+                                 </div>
+                             </div>
+
+                             <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                                <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="normalResult" src="" width="100%">
+                                 </div>
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="poisonResult" src="" width="100%">
+                                 </div>
+                             </div>
+
+                             <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab2">
+
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="normalResult" src="" width="100%">
+                                 </div>
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="poisonResult" src="" width="100%">
+                                 </div>
+                           </div>
+
+                             <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab3">
+
+                               <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="normalResult" src="" width="100%">
+                                 </div>
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="poisonResult" src="" width="100%">
+                                 </div>
+                             </div>
+
+                             <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab4">
+
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="normalResult" src="" width="100%">
+                                 </div>
+                                 <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+                                     <img class="poisonResult" src="" width="100%">
+                                 </div>
+                             </div>
+
+                         </div>
+                       </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            adversarial attack show by <a href="https://jsjxy.xust.edu.cn/"> college of computer science & technology, XUST</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Dropzone.js -->
+    <script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+    <!--引入 layui -->
+    <script src="../vendors/layui/layui.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+    <!--解析json数据-->
+    <script type="text/javascript">
+
+
+      layui.use(function(){
+        var layer = layui.layer
+        ,form = layui.form
+        ,laypage = layui.laypage
+        ,element = layui.element
+        ,laydate = layui.laydate
+        ,util = layui.util;
+
+        //欢迎信息
+        //layer.msg('Hello World');
+
+        //输出版本号
+        //lay('#version').html(layui.v);
+
+        //日期
+        laydate.render({
+          elem: '#test2'
+          ,value: new Date()
+          ,isInitValue: true
+        });
+
+        //触发事件
+        util.on('test-active', {
+          'test-form': function(){
+            layer.open({
+              type: 1
+              ,resize: false
+              ,shadeClose: true
+              ,area: '700px'
+              ,title: '原始样本'
+              ,content: ['<ul class="layui-form layui-form-pane" style="margin: 15px;">'
+              ,'<li class="layui-form-item">'
+                ,'<div class="row">'
+                   ,'<div class="col-md-3 col-sm-4 col-xs-12" style="text-align: center;">'
+                       ,'<img src="../deal/poison/scene1/image.jpg" width="150px" height="120px"/>'
+                        ,'<label>'
+                          ,'<input type="radio" class="flat" checked name="poison" value="scene1">'
+                        ,'</label>'
+                   ,'</div>'
+                   ,'<div class="col-md-3 col-sm-4 col-xs-12" style="text-align: center;">'
+                       ,'<img src="../deal/poison/scene2/image.jpg" width="150px" height="120px"/>'
+                        ,'<label>'
+                          ,'<input type="radio" class="flat" name="poison" value="scene2">'
+                        ,'</label>'
+                   ,'</div>'
+                   ,'<div class="col-md-3 col-sm-4 col-xs-12" style="text-align: center;">'
+                       ,'<img src="../deal/poison/scene3/image.jpg" width="150px" height="120px"/>'
+                        ,'<label>'
+                          ,'<input type="radio" class="flat" name="poison" value="scene3">'
+                        ,'</label>'
+                   ,'</div>'
+                   ,'<div class="col-md-3 col-sm-4 col-xs-12" style="text-align: center;">'
+                       ,'<img src="../deal/poison/scene4/image.jpg" width="150px" height="120px"/>'
+                        ,'<label>'
+                          ,'<input type="radio" class="flat" name="poison" value="scene4">'
+                        ,'</label>'
+                   ,'</div>'
+                ,'</div>'
+              ,'</li>'
+              ,'<li class="layui-form-item" style="text-align:center;">'
+                ,'<input  type="submit" lay-submit lay-filter="*" class="layui-btn" value="确定"/>'
+              ,'</li>'].join('')
+              ,success: function(layero, index){
+
+                layero.find('.layui-layer-content').css('overflow', 'visible');
+
+                form.render().on('submit(*)', function(data){
+                  var field = data.field;
+
+                  // 显示填写的表单
+                  //layer.msg(util.escape(JSON.stringify(field)), {
+                  //  icon: 1
+                  //});
+                  var scene = field["poison"];
+                  layer.close(index); //关闭层
+                  executeAttack(scene);
+                });
+              }
+            });
+          }
+        });
+      });
+      /*
+      $("#visit").click(function () {
+        var fileObj = $("#file").prop('files');
+        var formFile = new FormData();
+        formFile.append("uploadfile", fileObj[0]);
+        $.ajax({
+          url: '/api1/',
+          data: formFile,
+          type: 'post',
+          async: false,
+          dataType: 'json',
+          cache: false,
+          processData: false,
+          contentType: false,
+          success:function (res) {
+            alert(res);
+            $("#original").attr('src', res.upload_path)
+          }
+        })
+      });
+       */
+      function executeAttack (scene) {
+        //let scene = $("input[name='poison']:checked").val();
+        $(".normal").attr("src", "../deal/poison/" + scene + "/normal/result.mp4");
+        $(".poison").attr("src", "../deal/poison/" + scene + "/poison/result.mp4");
+
+
+        let normalResults = $(".normalResult");
+        let poisonResults = $(".poisonResult");
+        $.ajax({
+            url: '/poison/',
+            type: 'post',
+            data:{
+                'count': normalResults.length,
+                'scene': scene
+            },
+            dataType: 'json',
+            success: function (res) {
+                //解析返回结果
+                let poi = '../deal/poison/' + scene + '/poison/';
+                let nor = '../deal/poison/' + scene + '/normal/';
+                let imageNumber = res.indexes;
+                normalResults.each(function (index, e) {
+                    //设置图片路径
+                    $(e).attr('src', nor + imageNumber[index] + '.jpg');
+                });
+                poisonResults.each(function (index, e) {
+                    //设置图片路径
+                    $(e).attr('src', poi + imageNumber[index] + '.jpg');
+                });
+            }
+        });
+      }
+
+    </script>
+  </body>
+</html>
